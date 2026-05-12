@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "destination": "https://your-backend-url.com/api/**"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "version": {
+      "maxVersions": 3
+    }
+  }
+}

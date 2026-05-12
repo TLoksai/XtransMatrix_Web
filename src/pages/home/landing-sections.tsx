@@ -1,0 +1,10 @@
+export { default as LandingStyles } from "./landing-styles";
+export { default as LandingProgressBar } from "./landing-progress";
+export { default as LandingHero } from "./landing-hero";
+export { default as LandingMarquee } from "./landing-marquee";
+export { default as HScrollServices } from "./landing-services";
+export { default as ModalitiesScroll } from "./landing-modalities";
+export { default as LandingPlatform } from "./landing-platform";
+export { default as LandingQuality } from "./landing-quality";
+export { default as LandingAITank } from "./landing-aitank";
+export { default as LandingCTA } from "./landing-cta";
