@@ -199,6 +199,62 @@ function SLabel({ children }: { children: React.ReactNode }) {
 }
 
 
+const DIRECTION_LINKS = [
+  { num: "01", name: "Clinical Precision",  desc: "Calm precision and a healthcare-led editorial composition.", to: "/clinical", swatch: ["#f2f6f3", "#197767", "#16372f"] },
+  { num: "03", name: "The Human Frontier",  desc: "A distinctive, human editorial expression of the brand.",    to: "/human",    swatch: ["#eaeae1", "#d1eb62", "#445822"] },
+];
+
+const OPS_NODES = [
+  { n: "01", t: "Train",     pos: "top-[15px] left-[22%]" },
+  { n: "02", t: "Evaluate",  pos: "top-[70px] right-0" },
+  { n: "03", t: "Operate",   pos: "bottom-[25px] right-[6%]" },
+  { n: "04", t: "Supervise", pos: "bottom-[25px] left-[2%]" },
+  { n: "05", t: "Improve",   pos: "top-[83px] left-[-3%]" },
+];
+
+const PRINCIPLES = [
+  { k: "01 / Outcome",       t: "Beyond a completed task.",              d: "Connect the hand-offs, reviews and follow-through that make the whole workflow useful." },
+  { k: "02 / Accountability", t: "Human judgement. Clear ownership.",     d: "Define who reviews, who resolves and when a qualified domain expert must take over." },
+  { k: "03 / Progress",      t: "Improve the system—not just the volume.", d: "Learn from approved feedback. Reduce avoidable rework. Make quality visible as AI changes." },
+];
+
+function OperatingModel() {
+  return (
+    <div className="relative">
+      <div className="relative p-4 md:p-6 border border-blue-950 shadow-[0_25px_100px_rgba(3,6,16,0.6)]" style={{ background: "linear-gradient(150deg,rgba(12,15,26,0.92),rgba(6,8,14,0.94))" }}>
+        <div className="flex justify-between items-center gap-3 pb-4 border-b border-blue-950 font-mono text-[9px] tracking-[0.16em] uppercase text-gray-500">
+          <span className="flex items-center gap-2"><span className="inline-block w-[5px] h-[5px] rounded-full bg-blue-500" />xTMX / Operating model</span>
+          <span>Concept illustration</span>
+        </div>
+        <div className="relative h-[232px] my-2" style={{ backgroundImage: "radial-gradient(rgba(26,107,255,0.22) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
+          <div className="absolute w-[220px] h-[220px] top-3 left-1/2 -translate-x-1/2 rounded-full border border-blue-500/20" />
+          <div className="absolute w-[160px] h-[160px] top-[42px] left-1/2 -translate-x-1/2 rounded-full border border-dashed border-blue-500/20" />
+          <div className="absolute z-20 left-1/2 top-[78px] -translate-x-1/2 w-[156px] h-[90px] flex flex-col items-center justify-center border border-blue-500/40 shadow-[0_0_60px_rgba(26,107,255,0.16)]" style={{ background: "linear-gradient(135deg,#111626,#0C0F1A)" }}>
+            <strong className="text-[25px] font-extrabold tracking-[-0.045em] leading-none">AI + Human</strong>
+            <small className="font-mono text-[7.5px] tracking-[0.14em] uppercase text-blue-500 mt-2">Intelligence in operation</small>
+          </div>
+          {OPS_NODES.map(nd => (
+            <div key={nd.n} className={`absolute z-30 flex items-center gap-2 px-3 py-2 text-[10px] leading-none border border-blue-950 bg-[#0C0F1A] ${nd.pos}`}>
+              <span className="font-mono text-[8px] text-blue-500">{nd.n}</span>{nd.t}
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-3 p-3.5 border border-blue-950 bg-[#0C0F1A]">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-7 h-7 shrink-0 text-blue-500"><path d="m16 3 11 5v8c0 8-11 13-11 13S5 24 5 16V8L16 3Z" /><path d="m10 16 4 4 8-9" /></svg>
+          <div>
+            <strong className="block text-xs font-semibold tracking-tight">Human judgement, built into the loop.</strong>
+            <small className="block font-mono text-[9px] tracking-wide text-gray-500 mt-1">Review → Resolve → Record → Improve</small>
+          </div>
+        </div>
+      </div>
+      <div className="absolute -right-2 md:-right-4 -bottom-5 px-4 py-3 max-w-[240px] font-mono text-[9px] leading-relaxed text-white shadow-[0_9px_30px_rgba(3,6,16,0.55)]" style={{ background: BLUE }}>
+        <b className="block font-sans text-xs font-bold tracking-tight mb-0.5">Healthcare &amp; MedTech</b>
+        Reliable workflows. More room for care. ↗
+      </div>
+    </div>
+  );
+}
+
 
 const CARDS = [
   { id:"hc1", num:"01/04", title:"Robotics &\nPhysical AI", desc:"MCAP-native · LiDAR · Sensor fusion · 3D point clouds", bg:"bg-[#0C0F1A] border border-blue-950", link:"/robotics" },
@@ -492,54 +548,83 @@ export default function LandingPage() {
         background: "radial-gradient(ellipse 90% 70% at 5% 0%,rgba(13,71,200,0.32) 0%,transparent 55%), radial-gradient(ellipse 50% 40% at 95% 15%,rgba(26,107,255,0.12) 0%,transparent 50%), radial-gradient(ellipse 60% 50% at 50% 100%,rgba(8,18,60,0.5) 0%,transparent 60%)"
       }} />
 
-       <section id="hero" className="relative min-h-screen flex items-start overflow-hidden pt-8 pb-0">
-         <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-12 w-full grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-60px)] items-center">
-           <div className="space-y-6 md:space-y-8">
-             <div className="text-center md:text-left">
-               <h2 className="hero-subtitle font-bold tracking-tight leading-tight mb-3" style={{ fontSize: "clamp(18px,4vw,28px)" }}>
-                 AI-Powered Data Annotation for <span style={{ color: "#1A6BFF" }}>Enterprise-Grade Accuracy</span>
-               </h2>
-               <p className="hero-desc text-gray-400 leading-relaxed" style={{ fontSize: "clamp(12px,2vw,16px)" }}>
-                 End-to-end annotation pipelines delivering 99%+ quality at scale enabling faster production-ready AI
-               </p>
-             </div>
-             <div className="flex items-center justify-center md:justify-start gap-2 font-mono text-sm md:text-[18px] text-blue-500 tracking-[0.2em] uppercase">
-               <span className="w-4 md:w-6 h-px bg-blue-500" flex-shrink-0 />
-                <a href="https://verilabel.app/" target="_blank" rel="noopener noreferrer" className="hero-powered-link flex items-center gap-2 md:gap-2.5" style={{ textDecoration: "none", color: "inherit" }}>
-                 <span className="hidden md:inline">Powered by</span>
-                 <img src="/images/VL-logo.png" alt="VeriLabel" style={{ height: "28px", width: "auto", objectFit: "contain" }} />
-                 <span className="hidden md:inline">VeriLabel</span>
-               </a>
-             </div>
-             <h1 className="font-black tracking-[-0.05em] leading-[0.92] uppercase text-center md:text-left" style={{ fontSize: "clamp(40px,8vw,80px)" }}>
-               <span className="block">The data</span>
-               <span className="block">engine for</span>
-               <span className="block text-blue-500">Physical</span>
-               <span className="block">AI.</span>
-             </h1>
-           </div>
-              <div className="flex flex-col justify-end items-center md:items-start text-center md:text-left pb-16 md:pb-24 mt-8 md:mt-0">
-             <p className="hero-desc font-mono text-sm md:text-sm text-gray-200 leading-relaxed tracking-wide max-w-md mb-8">
-               We support Autonomous Driving, Computer Vision, Autonomous Systems, Physical AI Teams, Robotics Ventures, and Enterprise AI by delivering high-quality image, video, audio, and text data — accurately annotated and ready to scale real-world AI.
-             </p>
-             <div className="flex gap-3 md:gap-4 flex-wrap justify-center md:justify-start hero-btn-container">
-               <BBtn href="https://calendly.com/vishal-patil-xtransmatrix/30min" external style={{ fontSize: "12px", padding: "8px 16px" }}>Book Demo</BBtn>
-               <BBtn href="#hscroll" dim style={{ fontSize: "12px", padding: "8px 16px" }}>Explore Services</BBtn>
-             </div>
-           </div>
-         </div>
-         <div className="absolute bottom-4 md:bottom-6 left-4 md:left-12 font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-gray-600 flex items-center gap-2 after:w-8 md:after:w-10 after:h-px after:bg-gray-600">
-           Scroll to explore
-         </div>
-         <div className="hero-stats absolute bottom-4 md:bottom-6 right-4 md:right-12 flex border border-blue-950 bg-[rgba(12,15,26,0.7)] backdrop-blur-md scale-90 md:scale-100 origin-bottom-right">
-           {[["97%+","Accuracy"],["15+","Languages"],["5×","Faster"]].map(([n,l]) => (
-             <div key={l} className="px-4 md:px-8 py-3 md:py-5 text-center border-r border-blue-950 last:border-r-0">
-               <div className="text-2xl md:text-4xl font-black tracking-tight leading-none">{n}</div>
-               <div className="font-mono text-[10px] md:text-[12px] tracking-widest uppercase text-gray-400 mt-1">{l}</div>
-             </div>
-           ))}
-         </div>
-       </section>
+        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-8 pb-0">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-12 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-[1.12fr_1fr] gap-12 md:gap-14 items-center py-10 md:min-h-[calc(100vh-180px)]">
+              <div>
+                <SLabel>The AI Operations Company</SLabel>
+                <h1 className="font-black tracking-[-0.05em] leading-[0.94] uppercase" style={{ fontSize: "clamp(34px,4.3vw,58px)" }}>
+                  <span className="block">Make AI work.</span>
+                  <span className="block">In the <span className="text-blue-500">real world.</span></span>
+                </h1>
+                <p className="hero-desc text-gray-400 leading-relaxed mt-7 max-w-[480px]" style={{ fontSize: "clamp(13px,1.1vw,15px)" }}>
+                  We bring human intelligence, AI engineering and operational discipline together to help teams run dependable AI-powered workflows—with clear ownership, thoughtful oversight and outcomes that matter to people.
+                </p>
+                <div className="flex gap-3 md:gap-4 flex-wrap mt-9 hero-btn-container">
+                  <BBtn href="https://calendly.com/vishal-patil-xtransmatrix/30min" external style={{ fontSize: "12px" }}>Book Demo</BBtn>
+                  <BBtn href="#hscroll" style={{ fontSize: "12px" }}>Explore AI Operations</BBtn>
+                  <BBtn href="/medtech" dim style={{ fontSize: "12px" }}>Our healthcare focus ↗</BBtn>
+                </div>
+              </div>
+              <OperatingModel />
+            </div>
+          </div>
+        </section>
+
+        <section id="purpose" className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-12 py-20 md:py-28 border-t border-blue-950">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[76px] items-start">
+            <Reveal>
+              <SLabel>Human intelligence × Artificial intelligence</SLabel>
+              <h2 className="font-black tracking-tight uppercase leading-[0.95]" style={{ fontSize: "clamp(34px,3.9vw,56px)" }}>
+                Less friction.<br /><span className="text-blue-500">More human possibility.</span>
+              </h2>
+              <p className="text-gray-400 leading-relaxed mt-6 max-w-[480px]" style={{ fontSize: "clamp(13px,1.1vw,15px)" }}>
+                A world where AI-powered work earns trust—and gives people more time for what matters. That is the future we want to help build.
+              </p>
+              <div className="mt-12 pt-8 border-t border-blue-950 max-w-[480px]">
+                <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-gray-600 mb-5">Two other directions</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {DIRECTION_LINKS.map(d => (
+                    <Link key={d.to} to={d.to} className="group block p-5 border border-blue-950 bg-[#0C0F1A] transition-colors hover:border-blue-800 hover:bg-[#111626]">
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="font-mono text-[9px] tracking-[0.18em] text-blue-500">{d.num}</span>
+                        <span className="flex gap-1">{d.swatch.map(c => <span key={c} className="w-3.5 h-3.5 border border-white/10" style={{ background: c }} />)}</span>
+                      </div>
+                      <div className="mt-3 text-[15px] font-bold tracking-tight">{d.name}</div>
+                      <div className="mt-1.5 text-[11px] leading-relaxed text-gray-500">{d.desc}</div>
+                      <div className="mt-4 font-mono text-[9px] tracking-[0.16em] uppercase text-blue-500 flex items-center gap-1.5">
+                        View direction <span className="inline-block transition-transform group-hover:translate-x-0.5">↗</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="border-t border-blue-950">
+                {PRINCIPLES.map(p => (
+                  <article key={p.k} className="py-6 border-b border-blue-950">
+                    <span className="font-mono text-[9px] font-medium tracking-[0.18em] uppercase text-blue-500">{p.k}</span>
+                    <h3 className="text-xl font-bold tracking-tight mt-2.5 mb-2">{p.t}</h3>
+                    <p className="text-[13px] text-gray-400 leading-relaxed max-w-[460px]">{p.d}</p>
+                  </article>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+          <Reveal>
+            <div className="mt-10 p-5 md:px-7 md:py-6 border border-blue-950 bg-[#0C0F1A]">
+              <span className="block font-mono text-[9px] tracking-[0.18em] uppercase text-gray-600 mb-4">Our proposed operating approach</span>
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 text-[13px] md:text-sm font-medium tracking-tight">
+                <span>AI platforms</span><b className="font-normal text-blue-500">+</b>
+                <span>xTMX operations</span><b className="font-normal text-blue-500">+</b>
+                <span>Client domain teams</span><b className="font-normal text-blue-500">→</b>
+                <strong className="font-bold text-blue-500">Accountable workflows</strong>
+              </div>
+              <p className="font-mono text-[10px] text-gray-600 leading-relaxed mt-4">A service model to scope with each client—not a claim of integration with any named platform.</p>
+            </div>
+          </Reveal>
+        </section>
 
         <div className="h-14 border-t border-b border-blue-950 overflow-hidden flex items-center my-3">
           <div className="flex gap-16 items-center whitespace-nowrap marquee-container" style={{ width: "max-content" }}>

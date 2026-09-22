@@ -72,6 +72,7 @@ const Allinsights = lazy(() => import("./pages/case_study/allinsights"));
 
 const Tour = lazy(() => import("./pages/Tour"));
 const Pricing = lazy(() => import("./pages/pricing"));
+const DirectionPage = lazy(() => import("./pages/home/directions"));
 
 const App: React.FC = () => {
   return (
@@ -288,6 +289,23 @@ const App: React.FC = () => {
             element={
               <Layout>
                 <Contact />
+              </Layout>
+            }
+          />
+          <Route
+            path="/clinical"
+            element={
+              <Layout>
+                <DirectionPage direction="clinical" />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/human"
+            element={
+              <Layout>
+                <DirectionPage direction="human" />
               </Layout>
             }
           />
