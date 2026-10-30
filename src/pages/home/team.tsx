@@ -90,7 +90,7 @@ const TeamSection: React.FC = () => {
         <div className="team-row" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 14 }}>
           {row1.map((m, i) => <TeamCard key={m.name} member={m} idx={i} />)}
         </div>
-        <div className="team-row" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
+        <div className="team-row" style={{ display: "grid", gridTemplateColumns: `repeat(${row2.length},calc((100% - 42px) / 4))`, justifyContent: "center", gap: 14 }}>
           {row2.map((m, i) => <TeamCard key={m.name} member={m} idx={i + 4} />)}
         </div>
       </div>
