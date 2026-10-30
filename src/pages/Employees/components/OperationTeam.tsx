@@ -18,11 +18,6 @@ const OperationTeam: React.FC = () => {
       image: "https://ik.imagekit.io/lrxrnuqog/Employess/Operation%20Team/Shashank.png"
     },
     {
-      name: "JEEVAN",
-      role: "All in AI",
-      image: "https://ik.imagekit.io/lrxrnuqog/Employess/Operation%20Team/Jeevan.png"
-    },
-    {
       name: "VISHAL PATIL",
       role: "Chief of Staff",
       image: "https://ik.imagekit.io/lrxrnuqog/Employess/Operation%20Team/vishal.jpeg"

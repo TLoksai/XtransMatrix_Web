@@ -165,7 +165,6 @@ const TEAM = [
   { name:"Prasanna Patel",      role:"Sales, Finance & Admin",           domain:"Financial architecture · Business ops",    img:"https://ik.imagekit.io/lrxrnuqog/Employess/Founders/Prasanna.png" },
   { name:"Dr Akshay S P",       role:"AI Strategy & Governance",         domain:"Ethical AI · Policy architecture",         img:"https://ik.imagekit.io/lrxrnuqog/Team/Akshay.png" },
   { name:"Akhilesh Kunhi Raman",role:"Head of Design & Ops",             domain:"Systems design · Operations scale",        img:"https://ik.imagekit.io/lrxrnuqog/Team/Akhilesh.png" },
-  { name:"Jeevan S P",          role:"AI & Data Solutions Architect",    domain:"Data pipelines · ML infrastructure",       img:"https://ik.imagekit.io/lrxrnuqog/Team/Jeevan.png" },
   { name:"Shashank L K",        role:"Head of Technology",               domain:"Platform engineering · Scalability",       img:"https://ik.imagekit.io/lrxrnuqog/Team/Shashank.png" },
   { name:"Shivaram",            role:"Strategy & Sales",                 domain:"Growth · Partnership development",         img:"https://ik.imagekit.io/lrxrnuqog/Team/shivaram.png" },
 ];
